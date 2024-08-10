@@ -1,7 +1,9 @@
 // eslint-disable-next-line react/prop-types
 export default function SpecialP({children}){
     const style1={
-        color:'red'
+        color:'lightblue',
+        fontFamily:'Arial, Verdana',
+
     }
-    return <p style={style1}>{children}</p>
+    return <h1 style={style1}>{children}</h1>
 }
