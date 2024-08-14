@@ -4,16 +4,19 @@
 import './App.css'
 import Navbar from './navbar'
 import Component from './Component'
+import Form from './Form'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <Component numero='56' colore='red'>Riccardo</Component>
+      <Component numero={56} colore='red'>Riccardo</Component>
       <br></br>
       <br></br>
       <Navbar flag={true}/>
+      <br></br>
+      <Form/>
     </>
   )
 }
