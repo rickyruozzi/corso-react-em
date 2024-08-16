@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Navbar'
 import Component from './Component'
 import Form from './Form'
+import ButtonComp from './ButtonComp'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -41,6 +42,8 @@ function App() {
   }
 ];
 
+  const activeAlert= ()=>{alert('Alert attivato')}
+
   return (
     <>
       <Component numero={56} colore='red'>Riccardo</Component>
@@ -73,7 +76,8 @@ function App() {
       }}>
           Succede un macello nei log
         </button>
-      
+
+        <ButtonComp funzione={activeAlert}/>
     </>
   )
 }
