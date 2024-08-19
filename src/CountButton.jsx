@@ -16,7 +16,10 @@ export default function ButtonComp() {
 
   /*Se noi non passassimo nell'array il valore / i valori da tenere d'occhio per l'aggiornamento, useEffect si 
   attiverebbe ad ogni rivautazione del componente, se invece passassimo un array vuoto si  aggiornerebbe solo
-  la prima volta.*/
+  la prima volta.
+  Se nell'array ci sono più elementi il metodo verra eseguito nuovamente all'aggiornamento di uno qualsiasi 
+  dei parametri indicati*/
+
 
   return (
     <button className='ButtonMargin' onClick={handleClick}>
