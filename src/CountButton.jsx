@@ -9,9 +9,10 @@ export default function ButtonComp() {
   };
 
   useEffect(()=>{document.title=`${count}`}, [count])   //Alt + 096 per i backstick
-  //useEffect ci consente di gestire i cosidetti side effects, aggiornandoli con la classica sintassi di JS 
-  //rimarremmo sempre indietro di un passo, con tale metodo possiamo aggiornare il titolo (compiendo l'effetto) al
-  //variare dello stato della variabile count
+  
+  /*useEffect ci consente di gestire i cosidetti side effects, aggiornandoli con la classica sintassi di JS 
+  rimarremmo sempre indietro di un passo, con tale metodo possiamo aggiornare il titolo (compiendo l'effetto) al
+  variare dello stato della variabile count*/
 
   return (
     <button className='ButtonMargin' onClick={handleClick}>
