@@ -6,9 +6,10 @@ import Navbar from './Navbar'
 import Component from './Component'
 import Form from './Form'
 import ButtonComp from './ButtonComp'
+import CountButton from './CountButton'
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [items, setItems] = useState([1,2,3]);
   const addItems= ()=>{
     setItems([...items,items[items.length-1] + 1]); //sintassi per concatenare in jsx i due elementi
@@ -58,7 +59,9 @@ function App() {
 
       <Form/>
 
-      <button className='ButtonMargin' onClick={()=> setCount((count)=> count+1)}>count {count}</button> 
+     <CountButton/>
+
+      {/* <button className='ButtonMargin' onClick={()=> setCount((count)=> count+1)}>count {count}</button>  */}
       {/*L'utilizzo dello stato permette di aggiornare la variabile count, essendo uno stato l'aggiornamento
       avviene tramite sovrascrittura e non modifica.
       Il metodo useState permette di restutuire la variabile in questione inizializzata con il valore specificato
