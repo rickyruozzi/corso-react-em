@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,6 +9,9 @@ import ButtonComp from './ButtonComp'
 import CountButton from './CountButton'
 
 function App() {
+  const [oggetto, setOggetto] = useState({default : 'Default'});
+
+  useEffect(()=>{console.log(oggetto)}, [oggetto])
   // const [count, setCount] = useState(0);
   const [items, setItems] = useState([1,2,3]);
   const addItems= ()=>{
@@ -44,6 +47,19 @@ function App() {
 ];
 
   const activeAlert= ()=>{alert('Alert attivato')}
+
+  const HandleFetch= ()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+      if(!response.ok){
+        throw new Error('Errore durante la richiesta'); //questa sintassi permette la creazione di un apposito errore
+      }
+      return response.json()})
+    .then(data => {setOggetto(data);})
+    .catch(error => {console.error(error)})
+  }
+
+  /*esempio di utilizzo dell'API Fetch */
 
   return (
     <>
@@ -81,6 +97,8 @@ function App() {
         </button>
 
         <ButtonComp funzione={activeAlert}/>
+
+        <button onClick={HandleFetch}>Clicca qui !</button>
     </>
   )
 }
