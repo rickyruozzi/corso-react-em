@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useReducer } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,6 +11,27 @@ import CountButton from './CountButton'
 function App() {
   const [oggetto, setOggetto] = useState({default : 'Default'});
 
+  function formReducer(state,action){
+    switch(action.type){
+      case 'CHANGE_CAMPO':
+        return {...state, [action.campo] : action.valore} ;
+      case 'RESET':
+        return {nome:'Riccardo', campo:''}
+    }
+  }
+  const [myObject, dispatchMyObect] = useReducer(formReducer, {nome : 'Riccardo'})
+  const handleCampoChange= (campo , valore)=>{
+    dispatchMyObect({type:'CHANGE_CAMPO', campo, valore  })
+  }
+
+  const HandleResetForm= ()=>{
+    dispatchMyObect({type:'RESET', })
+  }
+  /*Usando il Reducer possiamo gestire lo stato in maniera più completa, implementando diversi tipi di azioni relative ad esso  */
+
+  useEffect(() => {
+    console.log(myObject);
+  }, [myObject]);
   useEffect(()=>{console.log(oggetto)}, [oggetto])
   // const [count, setCount] = useState(0);
   const [items, setItems] = useState([1,2,3]);
@@ -99,6 +120,14 @@ function App() {
         <ButtonComp funzione={activeAlert}/>
 
         <button onClick={HandleFetch}>Clicca qui !</button>
+        <br></br>
+        <br></br>
+        <form>
+          <label htmlFor='campo'>valore campo: </label>
+          <input type='text' name='campo' value={myObject.campo} onChange={(e)=>{handleCampoChange('nome',e.target.value)}}></input>
+          <input type='submit'>invio</input>
+          <input type='reset' onClick={HandleResetForm}></input>
+        </form>
     </>
   )
 }
