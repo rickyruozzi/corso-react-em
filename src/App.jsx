@@ -11,7 +11,7 @@ import CountButton from './CountButton'
 function App() {
   const [oggetto, setOggetto] = useState({default : 'Default'});
 
-  function formReducer(state,action){
+  function formReducer(state,action){  //vera e propria funzione che verrà richiamata per gestire le varie operazioni
     switch(action.type){
       case 'CHANGE_CAMPO':
         return {...state, [action.campo] : action.valore} ;
@@ -21,7 +21,8 @@ function App() {
   }
   const [myObject, dispatchMyObect] = useReducer(formReducer, {nome : 'Riccardo'})
   const handleCampoChange= (campo , valore)=>{
-    dispatchMyObect({type:'CHANGE_CAMPO', campo, valore  })
+    dispatchMyObect({type:'CHANGE_CAMPO', campo, valore }) /*la funzione dispatch chimerà formReducer passandoli i tre 
+    parametri. */
   }
 
   const HandleResetForm= ()=>{
