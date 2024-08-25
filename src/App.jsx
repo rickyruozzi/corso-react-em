@@ -83,6 +83,20 @@ function App() {
 
   /*esempio di utilizzo dell'API Fetch */
 
+  /*fetch('/api/endpoint', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    age: 30
+  })
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));*/
+
   return (
     <>
       <Component numero={56} colore='red'>Riccardo</Component>
