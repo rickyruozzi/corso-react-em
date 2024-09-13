@@ -25,6 +25,11 @@ function App() {
     parametri. */
   }
 
+  /*Con un reducer possiamo inizializzare un oggetto con un determinato stato, e dichiarare una funzione di dispatch che si occuperà del
+  cambio di stato. 
+  Successivamente alla chiamata di dispatch, la funzione stessa richiede il valore di ritorno da impostare a FormReducer
+  specificando il tipo di operazione e altri parametri all'interno di un oggetto.*/
+
   const HandleResetForm= ()=>{
     dispatchMyObect({type:'RESET', })
   }
