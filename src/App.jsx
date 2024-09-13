@@ -19,7 +19,7 @@ function App() {
         return {nome:'Riccardo', campo:''}
     }
   }
-  const [myObject, dispatchMyObect] = useReducer(formReducer, {nome : 'Riccardo'})
+  const [myObject, dispatchMyObect] = useReducer(formReducer, {nome : 'Riccardo'});
   const handleCampoChange= (campo , valore)=>{
     dispatchMyObect({type:'CHANGE_CAMPO', campo, valore }) /*la funzione dispatch chimerà formReducer passandoli i tre 
     parametri. */
@@ -144,9 +144,16 @@ function App() {
         <br></br>
         <form>
           <label htmlFor='campo'>valore campo: </label>
-          <input type='text' name='campo' value={myObject.campo} onChange={(e)=>{handleCampoChange('nome',e.target.value)}}></input>
-          <input type='submit'>invio</input>
-          <input type='reset' onClick={HandleResetForm}></input>
+          <input
+            type="text"
+            name="campo"
+            value={myObject.campo}
+            onChange={(e) => {
+              handleCampoChange(e.target.name, e.target.value);
+            }}
+          />
+          <input type="submit" />
+          <input type="reset" onClick={HandleResetForm} />
         </form>
     </>
   )
